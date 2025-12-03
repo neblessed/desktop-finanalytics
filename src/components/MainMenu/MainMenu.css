@@ -1,0 +1,29 @@
+.main_menu {
+    width: 350px;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+    background: linear-gradient(#f9f9f9, #e9fff5);
+    padding: 0 25px;
+    border-radius: 15px;
+    border: 1px solid #d4d4d4;
+}
+.main_menu__item {
+    width: auto;
+    height: 17px;
+}
+
+.main_menu__item:hover {
+    cursor: pointer;
+}
+
+.main_menu__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
