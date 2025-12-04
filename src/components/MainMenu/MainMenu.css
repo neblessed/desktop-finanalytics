@@ -7,10 +7,23 @@
     align-items: center;
     gap: 5px;
 
-    background: linear-gradient(#f9f9f9, #e9fff5);
+    /* dark mode */
+    background: linear-gradient(#f9d4d4, #9f9cda);
+    border: 1px solid #080808;
+
+    /* light mode */
+    /* background: linear-gradient(#f9f9f9, #e9fff5); */
+    /* border: 1px solid #d4d4d4; */
+
     padding: 0 25px;
     border-radius: 15px;
-    border: 1px solid #d4d4d4;
+
+    /* position: absolute;
+    bottom: 80px; */
+
+    /* Выравниваем ровно по середине */
+    margin-left: auto;
+    margin-right: auto;
 }
 .main_menu__item {
     width: auto;

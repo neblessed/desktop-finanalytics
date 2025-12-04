@@ -1,0 +1,5 @@
+body {
+    --fa-radius: 15px;
+    --fa-background-gradient: linear-gradient(#f9d4d4, #9f9cda);
+    background-color: rgb(23, 23, 23);
+}
