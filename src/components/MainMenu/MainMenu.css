@@ -11,6 +11,10 @@
     padding: 0 25px;
     border-radius: 15px;
     border: 1px solid #d4d4d4;
+
+    /* Выравниваем ровно по середине */
+    margin-left: auto;
+    margin-right: auto;
 }
 .main_menu__item {
     width: auto;
