@@ -1,0 +1,26 @@
+.feed__search {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feed__search__field {
+    width: 250px;
+    height: 28px;
+
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    padding-left: 10px;
+}
+.feed__search__cross {
+    width: auto;
+    height: 13px;
+    cursor: pointer;
+}
