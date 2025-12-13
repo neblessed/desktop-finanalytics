@@ -1,5 +1,22 @@
 body {
-    --fa-radius: 15px;
-    --fa-background-gradient: linear-gradient(#f9d4d4, #9f9cda);
-    background-color: rgb(23, 23, 23);
+    background-color: rgb(255, 246, 193);
+
+    --color-main: #232323;
+    /* --color-accent: rgba(119, 117, 255, 0.625); */
+    --color-accent: rgba(117, 255, 163, 0.49);
+
+    --shadow-inset-large: inset 2px 2px 30px rgba(0, 0, 0, 0.52);
+    --shadow-inset-medium: inset 2px 2px 20px rgba(0, 0, 0, 0.52);
+    --shadow-inset-light: inset 2px 2px 8px rgba(0, 0, 0, 0.52);
+
+    --dark-mode-green-black: #031314;
+    --background-dark-mode-and-letters: #052224;
+    --letters-and-icons: #093030;
+    --dark-mode-green-bar: #0e3e3e;
+    --main-green: #00d09e;
+    --light-green: #dff7e2;
+    --background-green-white-and-letters: #f1fff3;
+    --light-blue-button: #6db6fe;
+    --blue-button: #3299ff;
+    --ocean-blue-button: #0068ff;
 }

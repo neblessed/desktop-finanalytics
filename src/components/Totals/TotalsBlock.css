@@ -1,0 +1,19 @@
+.totals {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.line {
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 45px;
+    width: 2px;
+    border-radius: 10px;
+
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+}

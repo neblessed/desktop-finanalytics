@@ -1,0 +1,31 @@
+.menu {
+    position: absolute;
+    top: 712px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    align-content: center;
+    padding-left: 60px;
+    padding-right: 60px;
+
+    background-color: var(--light-green);
+    border-radius: 40px;
+
+    height: 80px;
+    width: 380px;
+}
+
+.menu_item {
+    width: 25px;
+    height: 25px;
+
+    cursor: pointer;
+}
+
+.menu_item.selected {
+    background-color: var(--main-green);
+
+    padding: 10px 10px;
+    border-radius: 15px;
+}
