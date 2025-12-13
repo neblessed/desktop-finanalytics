@@ -1,11 +1,16 @@
+import { useState } from "react";
 import "./App.css";
 import Expense from "./components/Expense/Expense";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
+import Modal from "./components/common/Modal/Modal";
+import CreationModal from "./components/CreationModal/CreationModal";
 
 function App() {
+    const [showCreationModal, setShowCreationModal] = useState(false);
+
     return (
         <div className="app">
             <div className="top_side">
@@ -39,7 +44,18 @@ function App() {
                 </div>
             </div>
             <div className="bottom_menu">
-                <Menu />
+                <Menu
+                    onShowCreationModal={() =>
+                        setShowCreationModal((prev) => !prev)
+                    }
+                />
+                {showCreationModal && (
+                    <CreationModal
+                        onCloseModal={() =>
+                            setShowCreationModal((prev) => !prev)
+                        }
+                    />
+                )}
             </div>
         </div>
     );

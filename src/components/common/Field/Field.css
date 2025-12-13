@@ -1,0 +1,20 @@
+.field {
+    display: grid;
+    gap: 2px;
+}
+.field_label {
+    font-size: 14px;
+    font-weight: 500;
+
+    margin-left: 9px;
+}
+
+.field_input {
+    border: none;
+
+    padding: 9px 15px;
+    font-size: 14px;
+
+    border-radius: 18px;
+    background-color: var(--light-green);
+}

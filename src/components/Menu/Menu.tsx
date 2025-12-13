@@ -1,6 +1,10 @@
 import "./Menu.css";
 
-function Menu() {
+type MenuPropType = {
+    onShowCreationModal: () => void;
+};
+
+function Menu({ onShowCreationModal }: MenuPropType) {
     return (
         <div className="menu">
             <img
@@ -17,6 +21,7 @@ function Menu() {
                 className="menu_item"
                 src="./menu/expenses.svg"
                 alt="expenses"
+                onClick={onShowCreationModal}
             />
             <img
                 className="menu_item"
