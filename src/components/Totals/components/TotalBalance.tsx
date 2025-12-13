@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import "./TotalBalance.css";
+import { formatBalance } from "../../../utils/formatBalance";
 
 type TotalBalancePropType = {
     icon: ReactNode;
@@ -14,19 +15,6 @@ function TotalBalance({
     balance,
     currency,
 }: TotalBalancePropType) {
-    const formatBalance = (balance: number, currency: string) => {
-        const formattedNumber = Math.abs(balance).toLocaleString("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        });
-
-        if (balance < 0) {
-            return `–${currency}${formattedNumber}`;
-        } else {
-            return `${currency}${formattedNumber}`;
-        }
-    };
-
     return (
         <div className="total_balance">
             <div className="total_balance_head">
