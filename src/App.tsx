@@ -1,6 +1,7 @@
 import "./App.css";
 import Expense from "./components/Expense/Expense";
 import Header from "./components/Header/Header";
+import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
 
@@ -37,7 +38,9 @@ function App() {
                     />
                 </div>
             </div>
-            <div className="bottom_menu"></div>
+            <div className="bottom_menu">
+                <Menu />
+            </div>
         </div>
     );
 }
