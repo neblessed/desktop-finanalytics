@@ -6,9 +6,13 @@ import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
 import CreationModal from "./components/CreationModal/CreationModal";
+import type { MenuItems } from "./types/MenuItems";
 
 function App() {
     const [showCreationModal, setShowCreationModal] = useState(false);
+
+    //TODO Сделать замену контента в блоке вместо модалок
+    const [selectedMenu, setSelectedMenu] = useState<MenuItems>("home");
 
     return (
         <div className="app">
