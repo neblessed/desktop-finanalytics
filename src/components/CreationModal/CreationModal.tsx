@@ -1,5 +1,6 @@
 import Button from "../common/Button/Button";
 import DatePicker from "../common/DatePicker/DatePicker";
+import DropdownSelect from "../common/DropdownSelect/DropdownSelect";
 import Field from "../common/Field/Field";
 import Modal from "../common/Modal/Modal";
 import "./CreationModal.css";
@@ -13,11 +14,26 @@ function CreationModal({ onCloseModal }: CreationModalPropType) {
         <Modal title="Add expenses" onCloseModal={onCloseModal}>
             <form className="creation_form">
                 <DatePicker />
-                {/* <Field label="Date" inputType="date" /> */}
-                <Field
+                <DropdownSelect
                     label="Select category"
-                    inputType="input"
                     placeholder="Select the category"
+                    options={[
+                        { name: "Salary", iconPath: "./categories/salary.svg" },
+                        { name: "Rent", iconPath: "./categories/rent.svg" },
+                        {
+                            name: "Savings",
+                            iconPath: "./categories/savings.svg",
+                        },
+                        {
+                            name: "Groceries",
+                            iconPath: "./categories/groceries.svg",
+                        },
+                        {
+                            name: "Transfers",
+                            iconPath: "./categories/salary.svg",
+                        },
+                        { name: "Taxi", iconPath: "./categories/rent.svg" },
+                    ]}
                 />
                 <Field
                     label="Amount"

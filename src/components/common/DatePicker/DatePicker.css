@@ -1,6 +1,7 @@
 .datepicker_field {
     display: grid;
     gap: 2px;
+    font-weight: 500;
 }
 .datepicker_field_label {
     font-size: 14px;
@@ -9,7 +10,7 @@
     margin-left: 9px;
 }
 
-.field_area {
+.datepicker_field_area {
     border: none;
 
     padding: 9px 15px;
@@ -26,7 +27,6 @@
 }
 
 .calendar_icon {
-    align-self: end;
     padding: 0.2rem 0.2rem;
     background-color: var(--main-green);
     border-radius: 7px;

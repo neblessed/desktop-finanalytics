@@ -53,7 +53,7 @@ function DatePicker({ label = "Date" }: DatePickerPropType) {
             }
         }
 
-        setMonth(currentDate.getMonth());
+        setMonth(currentDate.getMonth() + 1);
         setYear(currentDate.getFullYear());
         setCalendarVisible(false);
     };
@@ -65,7 +65,7 @@ function DatePicker({ label = "Date" }: DatePickerPropType) {
                     <label className="datepicker_field_label">{label}</label>
                 )}
                 <div
-                    className="field_area"
+                    className="datepicker_field_area"
                     onClick={() => setCalendarVisible((prev) => !prev)}
                 >
                     <span>{`${day} ${getMonthName(month)}${

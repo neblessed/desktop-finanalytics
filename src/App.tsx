@@ -5,7 +5,6 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
-import Modal from "./components/common/Modal/Modal";
 import CreationModal from "./components/CreationModal/CreationModal";
 
 function App() {
