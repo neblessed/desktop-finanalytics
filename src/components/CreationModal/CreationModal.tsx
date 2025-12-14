@@ -1,4 +1,5 @@
 import Button from "../common/Button/Button";
+import DatePicker from "../common/DatePicker/DatePicker";
 import Field from "../common/Field/Field";
 import Modal from "../common/Modal/Modal";
 import "./CreationModal.css";
@@ -11,7 +12,8 @@ function CreationModal({ onCloseModal }: CreationModalPropType) {
     return (
         <Modal title="Add expenses" onCloseModal={onCloseModal}>
             <form className="creation_form">
-                <Field label="Date" inputType="input" />
+                <DatePicker />
+                {/* <Field label="Date" inputType="date" /> */}
                 <Field
                     label="Select category"
                     inputType="input"

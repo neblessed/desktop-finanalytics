@@ -4,11 +4,11 @@ import "./Field.css";
 type FieldPropType = {
     label?: string;
     placeholder?: string;
-    inputType: HTMLInputTypeAttribute;
+    inputType?: HTMLInputTypeAttribute;
     wide?: boolean; //TODO сделать нерастягиваемым
 };
 
-function Field({ label, placeholder, inputType }: FieldPropType) {
+function Field({ label, placeholder, inputType = "text" }: FieldPropType) {
     return (
         <div className="field">
             <label className="field_label">{label}</label>
