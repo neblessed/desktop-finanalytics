@@ -4,9 +4,10 @@ import { getMonthName } from "./utils/getMonthName";
 
 type DatePickerPropType = {
     label?: string;
+    handleDateChange: any;
 };
 
-function DatePicker({ label = "Date" }: DatePickerPropType) {
+function DatePicker({ label = "Date", handleDateChange }: DatePickerPropType) {
     const currentDate = new Date();
     const [calendarVisible, setCalendarVisible] = useState(false);
 
@@ -57,6 +58,8 @@ function DatePicker({ label = "Date" }: DatePickerPropType) {
         setYear(currentDate.getFullYear());
         setCalendarVisible(false);
     };
+
+    handleDateChange(`${day}/${month}/${year}`);
 
     return (
         <div className="date_picker">

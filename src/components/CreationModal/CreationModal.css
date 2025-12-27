@@ -1,4 +1,14 @@
 .creation_form {
-    display: grid;
-    gap: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.create_btn {
+    align-self: center;
+
+    & button {
+        cursor: pointer;
+    }
 }

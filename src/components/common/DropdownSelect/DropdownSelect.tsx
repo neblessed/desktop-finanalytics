@@ -6,6 +6,8 @@ type DropdownSelectPropType = {
     label?: string;
     placeholder?: string;
     options: string[] | Category[];
+    category: string;
+    handleCategoryChange: any;
 };
 
 // Гард для проверки, является ли элемент Category
@@ -35,11 +37,13 @@ const filterOptions = (
 
 function DropdownSelect({
     label,
-    placeholder = "Select the category",
+    placeholder = "Select",
     options,
+    category,
+    handleCategoryChange,
 }: DropdownSelectPropType) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
-    const [category, setCategory] = useState<null | string>(null);
+    // const [category, setCategory] = useState<null | string>(null);
     const [searchQuery, setSearchQuery] = useState("");
 
     const filteredOptions = filterOptions(options, searchQuery);
@@ -47,7 +51,7 @@ function DropdownSelect({
     const handleItemClick = (item: string | Category) => {
         const name = getItemName(item);
 
-        setCategory(name);
+        handleCategoryChange(name);
         setSearchQuery("");
         setDropdownVisible(false);
     };
@@ -62,7 +66,11 @@ function DropdownSelect({
                     className="dropdown_field_area"
                     onClick={() => setDropdownVisible((prev) => !prev)}
                 >
-                    <span>{category ? category : placeholder}</span>
+                    <span
+                        className={category ? "" : "dropdown_field_placeholder"}
+                    >
+                        {category ? category : placeholder}
+                    </span>
                     <img
                         className="dropdown_icon"
                         src={

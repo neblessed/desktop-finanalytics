@@ -19,4 +19,11 @@ body {
     --light-blue-button: #6db6fe;
     --blue-button: #3299ff;
     --ocean-blue-button: #0068ff;
+    --grey-color: rgb(109, 109, 109);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

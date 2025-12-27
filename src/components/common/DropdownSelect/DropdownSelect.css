@@ -94,3 +94,6 @@
     font-weight: 500;
     cursor: pointer;
 }
+.dropdown_field_placeholder {
+    color: var(--grey-color);
+}

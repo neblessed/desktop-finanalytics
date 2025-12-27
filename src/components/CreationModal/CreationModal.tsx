@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../common/Button/Button";
 import DatePicker from "../common/DatePicker/DatePicker";
 import DropdownSelect from "../common/DropdownSelect/DropdownSelect";
@@ -10,13 +11,19 @@ type CreationModalPropType = {
 };
 
 function CreationModal({ onCloseModal }: CreationModalPropType) {
+    const [date, setDate] = useState(null);
+    const [category, setCategory] = useState("");
+    const [amount, setAmount] = useState(0);
+
     return (
         <Modal title="Add expenses" onCloseModal={onCloseModal}>
             <form className="creation_form">
-                <DatePicker />
+                <DatePicker handleDateChange={setDate} />
                 <DropdownSelect
                     label="Select category"
                     placeholder="Select the category"
+                    category={category}
+                    handleCategoryChange={setCategory}
                     options={[
                         { name: "Salary", iconPath: "./categories/salary.svg" },
                         { name: "Rent", iconPath: "./categories/rent.svg" },
@@ -39,8 +46,25 @@ function CreationModal({ onCloseModal }: CreationModalPropType) {
                     label="Amount"
                     inputType="number"
                     placeholder="Type amount"
+                    fontWeight={500}
+                    value={amount}
+                    changesHandler={(e) => setAmount(e.target.value)}
                 />
-                <Button title="Save" />
+                <div className="create_btn">
+                    <Button
+                        title="Save"
+                        type="submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            console.log({
+                                id: new Date().toISOString(),
+                                category,
+                                amount,
+                                date,
+                            });
+                        }}
+                    />
+                </div>
             </form>
         </Modal>
     );
