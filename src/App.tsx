@@ -5,13 +5,14 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
-import CreationModal from "./components/CreationModal/CreationModal";
 import type { MenuItems } from "./types/MenuItems";
+import CreationForm from "./components/CreationForm/CreationForm";
+import { useOperationsSelector } from "./hooks/redux";
 
 function App() {
-    const [showCreationModal, setShowCreationModal] = useState(false);
-
-    //TODO Сделать замену контента в блоке вместо модалок
+    const { operations } = useOperationsSelector(
+        (store) => store.operationsReducer
+    );
     const [selectedMenu, setSelectedMenu] = useState<MenuItems>("home");
 
     return (
@@ -21,44 +22,26 @@ function App() {
                 <TotalsBlock />
             </div>
             <div className="bottom_side">
-                <PeriodsPanel />
-                <div className="feed">
-                    <Expense
-                        icon="./categories/salary.svg"
-                        category="Rent"
-                        date="August 20"
-                        balance={-1582.83}
-                        currency="$"
-                    />
-                    <Expense
-                        icon="./categories/salary.svg"
-                        category="Salary"
-                        date="August 20"
-                        balance={13700}
-                        currency="$"
-                    />
-                    <Expense
-                        icon="./categories/salary.svg"
-                        category="Transport"
-                        date="August 20"
-                        balance={-1.64}
-                        currency="$"
-                    />
-                </div>
+                {selectedMenu === "home" && (
+                    <>
+                        <PeriodsPanel />
+                        <div className="feed">
+                            {operations.map((operation) => (
+                                <Expense
+                                    key={operation.id}
+                                    icon="./categories/salary.svg"
+                                    category={operation.category}
+                                    date={operation.date}
+                                    balance={operation.amount}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
+                {selectedMenu === "expenses" && <CreationForm />}
             </div>
             <div className="bottom_menu">
-                <Menu
-                    onShowCreationModal={() =>
-                        setShowCreationModal((prev) => !prev)
-                    }
-                />
-                {showCreationModal && (
-                    <CreationModal
-                        onCloseModal={() =>
-                            setShowCreationModal((prev) => !prev)
-                        }
-                    />
-                )}
+                <Menu onMenuItemClick={setSelectedMenu} />
             </div>
         </div>
     );

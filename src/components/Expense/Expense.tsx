@@ -6,10 +6,16 @@ type ExpensePropType = {
     category: string;
     date: string;
     balance: number;
-    currency: string;
+    currency?: string;
 };
 
-function Expense({ icon, category, date, balance, currency }: ExpensePropType) {
+function Expense({
+    icon,
+    category,
+    date,
+    balance,
+    currency = "$",
+}: ExpensePropType) {
     return (
         <div className="expense">
             <div className="expense_content">

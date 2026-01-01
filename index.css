@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(255, 246, 193);
+    background-color: rgb(49, 49, 49);
+    /* background-color: rgb(255, 246, 193); */
 
     --color-main: #232323;
     /* --color-accent: rgba(119, 117, 255, 0.625); */
