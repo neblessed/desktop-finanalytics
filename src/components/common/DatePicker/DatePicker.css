@@ -1,7 +1,10 @@
 .datepicker_field {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2px;
+
     font-weight: 500;
+    align-items: flex-start;
 }
 .datepicker_field_label {
     font-size: 14px;
@@ -15,6 +18,7 @@
 
     padding: 9px 15px;
     font-size: 14px;
+    min-width: 270px;
 
     border-radius: 18px;
     background-color: var(--light-green);

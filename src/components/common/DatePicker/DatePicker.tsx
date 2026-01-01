@@ -33,7 +33,6 @@ function DatePicker({ label = "Date", handleDateChange }: DatePickerPropType) {
                 setMonth((prev) => prev + 1);
             }
         }
-        console.log(month, " | ", year);
     };
 
     const mostUsableButtonClickHandler = (

@@ -1,4 +1,4 @@
-import type { HTMLInputTypeAttribute } from "react";
+import type { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
 import "./Field.css";
 
 type FieldPropType = {
@@ -8,7 +8,8 @@ type FieldPropType = {
     fontWeight?: number;
     wide?: boolean; //TODO сделать нерастягиваемым
     value?: string | number;
-    changesHandler: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    changesHandler?: (e?: any) => void;
 };
 
 function Field({

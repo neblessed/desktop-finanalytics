@@ -1,0 +1,23 @@
+.category-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 250px;
+    height: 58px;
+    background-color: var(--light-green);
+    border-radius: 22px;
+
+    margin: 10px auto;
+}
+.category {
+    margin: 12px 14.5px;
+    width: 95px;
+
+    cursor: pointer;
+}
+.category-selected {
+    border-radius: 20px;
+    background-color: var(--main-green);
+    padding: 13.5px 5.5px;
+}
