@@ -10,6 +10,20 @@ import { setMenu } from "../../store/slices/menu.slice";
 import ExpenseTab from "../Expense/tabs/ExpenseTab";
 import type { TransactionType } from "../../types/TransactionType";
 
+const formValidation = (category: string, amount: number) => {
+    if (category.length === 0 && amount > 0) {
+        throw new Error("Category missed!");
+    }
+
+    if (category.length > 0 && amount <= 0) {
+        throw new Error("Amount must be positive number!");
+    }
+
+    if (category.length === 0 && amount <= 0) {
+        throw new Error("Category missed. Amount must be positive number!");
+    }
+};
+
 function CreationForm() {
     const dispatch = useAppDispatch();
     const [date, setDate] = useState<string>("");
@@ -17,6 +31,7 @@ function CreationForm() {
     const [amount, setAmount] = useState<number>(0);
     const [transactionType, setTransactionType] =
         useState<TransactionType>("spendings");
+    const [error, setError] = useState<string | null>(null);
 
     return (
         <>
@@ -24,6 +39,7 @@ function CreationForm() {
                 transactionType={transactionType}
                 setTransactionType={setTransactionType}
             />
+            {error && <p className="creation_form_error_text">❌ {error}</p>}
             <form className="creation_form">
                 <DatePicker handleDateChange={setDate} />
                 <DropdownSelect
@@ -64,20 +80,25 @@ function CreationForm() {
                         onClick={(e) => {
                             e.preventDefault();
 
-                            dispatch(
-                                addOperation({
-                                    id: new Date().toISOString(),
-                                    category,
-                                    amount:
-                                        transactionType === "spendings"
-                                            ? -amount
-                                            : amount,
-                                    date,
-                                    type: transactionType,
-                                })
-                            );
+                            try {
+                                formValidation(category, amount);
+                                dispatch(
+                                    addOperation({
+                                        id: new Date().toISOString(),
+                                        category,
+                                        amount:
+                                            transactionType === "spendings"
+                                                ? -amount
+                                                : amount,
+                                        date,
+                                        type: transactionType,
+                                    })
+                                );
 
-                            dispatch(setMenu("home"));
+                                dispatch(setMenu("home"));
+                            } catch (e) {
+                                setError((e as Error).message);
+                            }
                         }}
                     />
                 </div>
