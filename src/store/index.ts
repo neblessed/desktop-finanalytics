@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import operationsReducer from "./slices/operations.slice";
+import menuReducer from "./slices/menu.slice";
 
 const rootReducer = combineReducers({
     operationsReducer,
+    menuReducer,
 });
 
 export const setupStore = () => {
@@ -13,4 +15,4 @@ export const setupStore = () => {
 
 export type Store = ReturnType<typeof setupStore>;
 export type RootState = ReturnType<typeof rootReducer>;
-export type OperationsDispatch = Store["dispatch"];
+export type AppDispatch = Store["dispatch"];

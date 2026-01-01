@@ -1,55 +1,48 @@
-import { useState } from "react";
 import "./Menu.css";
 import type { MenuItems } from "../../types/MenuItems";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { setMenu } from "../../store/slices/menu.slice";
 
-type MenuPropType = {
-    onMenuItemClick: any;
-};
-
-function Menu({ onMenuItemClick }: MenuPropType) {
-    const [selected, setSelected] = useState("home");
+function Menu() {
+    const dispatch = useAppDispatch();
+    const menu = useAppSelector((store) => store.menuReducer);
 
     const clickOnItem = (item: MenuItems) => {
-        onMenuItemClick(item);
-        setSelected(item);
+        dispatch(setMenu(item));
     };
 
     return (
         <div className="menu">
             <img
-                className={`menu_item ${selected === "home" ? "selected" : ""}`}
+                className={`menu_item ${menu === "home" ? "selected" : ""}`}
                 src="./menu/home.svg"
                 alt="home"
                 onClick={() => clickOnItem("home")}
             />
             <img
                 className={`menu_item ${
-                    selected === "analytics" ? "selected" : ""
+                    menu === "analytics" ? "selected" : ""
                 }`}
                 src="./menu/analytics.svg"
                 alt="analytics"
                 onClick={() => clickOnItem("analytics")}
             />
             <img
-                className={`menu_item ${
-                    selected === "expenses" ? "selected" : ""
-                }`}
+                className={`menu_item ${menu === "expenses" ? "selected" : ""}`}
                 src="./menu/expenses.svg"
                 alt="expenses"
                 onClick={() => clickOnItem("expenses")}
             />
             <img
                 className={`menu_item ${
-                    selected === "categories" ? "selected" : ""
+                    menu === "categories" ? "selected" : ""
                 }`}
                 src="./menu/categories.svg"
                 alt="categories"
                 onClick={() => clickOnItem("categories")}
             />
             <img
-                className={`menu_item ${
-                    selected === "profile" ? "selected" : ""
-                }`}
+                className={`menu_item ${menu === "profile" ? "selected" : ""}`}
                 src="./menu/profile.svg"
                 alt="profile"
                 onClick={() => clickOnItem("profile")}

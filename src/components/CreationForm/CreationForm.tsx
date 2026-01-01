@@ -4,11 +4,12 @@ import DatePicker from "../common/DatePicker/DatePicker";
 import DropdownSelect from "../common/DropdownSelect/DropdownSelect";
 import Field from "../common/Field/Field";
 import "./CreationForm.css";
-import { useOperationsDispatch } from "../../hooks/redux";
+import { useAppDispatch } from "../../hooks/redux";
 import { addOperation } from "../../store/slices/operations.slice";
+import { setMenu } from "../../store/slices/menu.slice";
 
 function CreationForm() {
-    const dispatch = useOperationsDispatch();
+    const dispatch = useAppDispatch();
 
     const [date, setDate] = useState<null | string>(null);
     const [category, setCategory] = useState("");
@@ -63,6 +64,8 @@ function CreationForm() {
                                 date: date as string,
                             })
                         );
+
+                        dispatch(setMenu("home"));
                     }}
                 />
             </div>

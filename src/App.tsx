@@ -1,19 +1,15 @@
-import { useState } from "react";
 import "./App.css";
 import Expense from "./components/Expense/Expense";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import PeriodsPanel from "./components/PeriodsPanel/PeriodsPanel";
 import TotalsBlock from "./components/Totals/TotalsBlock";
-import type { MenuItems } from "./types/MenuItems";
 import CreationForm from "./components/CreationForm/CreationForm";
-import { useOperationsSelector } from "./hooks/redux";
+import { useAppSelector } from "./hooks/redux";
 
 function App() {
-    const { operations } = useOperationsSelector(
-        (store) => store.operationsReducer
-    );
-    const [selectedMenu, setSelectedMenu] = useState<MenuItems>("home");
+    const { operations } = useAppSelector((store) => store.operationsReducer);
+    const menu = useAppSelector((store) => store.menuReducer);
 
     return (
         <div className="app">
@@ -22,7 +18,7 @@ function App() {
                 <TotalsBlock />
             </div>
             <div className="bottom_side">
-                {selectedMenu === "home" && (
+                {menu === "home" && (
                     <>
                         <PeriodsPanel />
                         <div className="feed">
@@ -38,10 +34,10 @@ function App() {
                         </div>
                     </>
                 )}
-                {selectedMenu === "expenses" && <CreationForm />}
+                {menu === "expenses" && <CreationForm />}
             </div>
             <div className="bottom_menu">
-                <Menu onMenuItemClick={setSelectedMenu} />
+                <Menu />
             </div>
         </div>
     );
