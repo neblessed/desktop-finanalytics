@@ -7,7 +7,7 @@ type DropdownSelectPropType = {
     placeholder?: string;
     options: string[] | Category[];
     category: string;
-    handleCategoryChange: any;
+    handleCategoryChange: (category: string) => void;
 };
 
 // Гард для проверки, является ли элемент Category
@@ -43,7 +43,6 @@ function DropdownSelect({
     handleCategoryChange,
 }: DropdownSelectPropType) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
-    // const [category, setCategory] = useState<null | string>(null);
     const [searchQuery, setSearchQuery] = useState("");
 
     const filteredOptions = filterOptions(options, searchQuery);

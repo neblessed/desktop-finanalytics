@@ -68,6 +68,11 @@
     background-color: var(--light-green);
 }
 
+.dropdown_options {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
 .dropdown_text_option {
     cursor: pointer;
 
