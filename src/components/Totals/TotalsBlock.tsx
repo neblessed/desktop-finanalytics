@@ -10,14 +10,14 @@ function TotalsBlock() {
          <TotalBalance
             icon={<img src="./earnings.svg" />}
             title="Total Balance"
-            balance={totals.earnings - totals.expense}
+            balance={totals.balance}
             currency="$"
          />
          <div className="line" />
          <TotalBalance
             icon={<img src="./spendings.svg" />}
             title="Total Expense"
-            balance={totals.expense}
+            balance={totals.spendings}
             type="spendings"
             currency="$"
          />

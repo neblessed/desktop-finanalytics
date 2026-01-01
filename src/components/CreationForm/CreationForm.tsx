@@ -71,7 +71,7 @@ function CreationForm() {
                placeholder="Type amount"
                fontWeight={500}
                value={amount > 0 ? amount : ''}
-               changesHandler={(e) => setAmount(e.target.value)}
+               changesHandler={(e) => setAmount(Number(e.target.value))}
             />
             <div className="create_btn">
                <Button
@@ -86,7 +86,7 @@ function CreationForm() {
                            addOperation({
                               id: new Date().toISOString(),
                               category,
-                              amount: amount,
+                              amount,
                               date,
                               type: transactionType,
                            }),

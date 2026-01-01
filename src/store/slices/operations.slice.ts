@@ -20,9 +20,8 @@ const operationsSlice = createSlice({
    },
    reducers: {
       addOperation: (state, action: PayloadAction<OperationType>) => {
-         state.operations.push(action.payload);
-         console.log(calculateTotals(state.operations));
          console.log(action.payload);
+         state.operations.push(action.payload);
          state.totals = calculateTotals(state.operations);
       },
    },
