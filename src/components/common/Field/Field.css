@@ -1,25 +1,25 @@
 .field {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 2px;
 }
 .field_label {
-    font-size: 14px;
-    font-weight: 500;
+   font-size: 14px;
+   font-weight: 500;
 
-    margin-left: 9px;
+   margin-left: 9px;
 }
 
 .field_input {
-    font-family: "Montserrat", sans-serif;
-    border: none;
+   font-family: 'Montserrat', sans-serif;
+   border: none;
 
-    padding: 9px 15px;
-    font-size: 14px;
-    min-width: 270px;
+   padding: 9px 15px;
+   font-size: 14px;
+   min-width: 270px;
 
-    border-radius: 18px;
-    background-color: var(--light-green);
-    list-style: none;
+   border-radius: 18px;
+   background-color: var(--light-green);
+   list-style: none;
 }

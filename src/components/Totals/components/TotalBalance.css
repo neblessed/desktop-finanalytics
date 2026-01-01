@@ -1,24 +1,24 @@
 .total_balance {
-    text-align: start;
-    cursor: default;
-    height: 50px;
+   text-align: start;
+   cursor: default;
+   height: 50px;
 }
 .total_balance_head {
-    display: flex;
-    gap: 6px;
-    align-items: center;
+   display: flex;
+   gap: 6px;
+   align-items: center;
 }
 
 .title {
-    font-size: 14px;
+   font-size: 14px;
 }
 .total_balance_sum {
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 1.5px;
+   font-size: 24px;
+   font-weight: 700;
+   color: white;
+   letter-spacing: 1.5px;
 }
 
 .loss {
-    color: #0068ff;
+   color: #0068ff;
 }
