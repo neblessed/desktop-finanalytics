@@ -86,10 +86,7 @@ function CreationForm() {
                            addOperation({
                               id: new Date().toISOString(),
                               category,
-                              amount:
-                                 transactionType === 'spendings'
-                                    ? -amount
-                                    : amount,
+                              amount: amount,
                               date,
                               type: transactionType,
                            }),

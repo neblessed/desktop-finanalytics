@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react';
 import './TotalBalance.css';
 import { formatBalance } from '../../../utils/formatBalance';
+import type { TransactionType } from '../../../types/TransactionType';
 
 type TotalBalancePropType = {
    icon: ReactNode;
    title: string;
    balance: number;
+   type?: TransactionType;
    currency: string;
 };
 
@@ -13,6 +15,7 @@ function TotalBalance({
    icon,
    title,
    balance,
+   type = 'earnings',
    currency,
 }: TotalBalancePropType) {
    return (
@@ -21,8 +24,10 @@ function TotalBalance({
             <div className="icon">{icon}</div>
             <span className="title">{title}</span>
          </div>
-         <span className={`total_balance_sum ${balance < 0 ? 'loss' : ''}`}>
-            {formatBalance(balance, currency)}
+         <span
+            className={`total_balance_sum ${type === 'spendings' ? 'loss' : ''}`}
+         >
+            {formatBalance(balance, currency, type)}
          </span>
       </div>
    );

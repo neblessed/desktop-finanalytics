@@ -4,6 +4,8 @@
    align-items: center;
 
    margin: auto 50px;
+
+   cursor: default;
 }
 .expense_icon {
    width: 50px;

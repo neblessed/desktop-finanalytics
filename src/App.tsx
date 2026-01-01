@@ -6,7 +6,6 @@ import PeriodsPanel from './components/PeriodsPanel/PeriodsPanel';
 import TotalsBlock from './components/Totals/TotalsBlock';
 import CreationForm from './components/CreationForm/CreationForm';
 import { useAppSelector } from './hooks/redux';
-import ExpenseTab from './components/Expense/tabs/ExpenseTab';
 
 function App() {
    const { operations } = useAppSelector((store) => store.operationsReducer);
@@ -30,6 +29,7 @@ function App() {
                            category={operation.category}
                            date={operation.date}
                            balance={operation.amount}
+                           transactionType={operation.type}
                         />
                      ))}
                   </div>

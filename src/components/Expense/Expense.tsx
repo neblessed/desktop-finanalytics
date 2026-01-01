@@ -1,3 +1,4 @@
+import type { TransactionType } from '../../types/TransactionType';
 import { formatBalance } from '../../utils/formatBalance';
 import './Expense.css';
 
@@ -6,6 +7,7 @@ type ExpensePropType = {
    category: string;
    date: string;
    balance: number;
+   transactionType: TransactionType;
    currency?: string;
 };
 
@@ -14,6 +16,7 @@ function Expense({
    category,
    date,
    balance,
+   transactionType,
    currency = '$',
 }: ExpensePropType) {
    return (
@@ -24,11 +27,19 @@ function Expense({
             </div>
             <div className="expense_title">
                <span className="expense_category">{category}</span>
-               <span className="expense_date">{date}</span>
+               <span className="expense_date">
+                  {new Date(date).toLocaleDateString('en-GB', {
+                     day: '2-digit',
+                     month: 'long',
+                     year: 'numeric',
+                  })}
+               </span>
             </div>
          </div>
-         <span className={`expense_sum ${balance < 0 ? 'loss' : ''}`}>
-            {formatBalance(balance, currency)}
+         <span
+            className={`expense_sum ${transactionType === 'spendings' ? 'loss' : ''}`}
+         >
+            {formatBalance(balance, currency, transactionType)}
          </span>
       </div>
    );
