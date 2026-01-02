@@ -1,10 +1,5 @@
 import type { OperationType } from '../../types/OperationType';
-
-type Totals = {
-   spendings: number;
-   earnings: number;
-   balance: number;
-};
+import type { Totals } from '../../types/TotalsType';
 
 export const calculateTotals = (operations: OperationType[]): Totals => {
    const totals = {

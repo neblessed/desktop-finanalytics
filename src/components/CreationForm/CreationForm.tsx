@@ -4,7 +4,7 @@ import DatePicker from '../common/DatePicker/DatePicker';
 import DropdownSelect from '../common/DropdownSelect/DropdownSelect';
 import Field from '../common/Field/Field';
 import './CreationForm.css';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { addOperation } from '../../store/slices/operations.slice';
 import { setMenu } from '../../store/slices/menu.slice';
 import ExpenseTab from '../Expense/tabs/ExpenseTab';
@@ -26,6 +26,7 @@ const formValidation = (category: string, amount: number) => {
 
 function CreationForm() {
    const dispatch = useAppDispatch();
+   const { categories } = useAppSelector((store) => store.operationsReducer);
    const [date, setDate] = useState<string>('');
    const [category, setCategory] = useState<string>('');
    const [amount, setAmount] = useState<number>(0);
@@ -35,6 +36,7 @@ function CreationForm() {
 
    return (
       <>
+         <h3>Add Expenses</h3>
          <ExpenseTab
             transactionType={transactionType}
             setTransactionType={setTransactionType}
@@ -47,23 +49,7 @@ function CreationForm() {
                placeholder="Select the category"
                category={category}
                handleCategoryChange={setCategory}
-               options={[
-                  { name: 'Salary', iconPath: './categories/salary.svg' },
-                  { name: 'Rent', iconPath: './categories/rent.svg' },
-                  {
-                     name: 'Savings',
-                     iconPath: './categories/savings.svg',
-                  },
-                  {
-                     name: 'Groceries',
-                     iconPath: './categories/groceries.svg',
-                  },
-                  {
-                     name: 'Transfers',
-                     iconPath: './categories/salary.svg',
-                  },
-                  { name: 'Taxi', iconPath: './categories/rent.svg' },
-               ]}
+               options={categories}
             />
             <Field
                label="Amount"
@@ -76,7 +62,6 @@ function CreationForm() {
             <div className="create_btn">
                <Button
                   title="Save"
-                  type="submit"
                   onClick={(e) => {
                      e.preventDefault();
 

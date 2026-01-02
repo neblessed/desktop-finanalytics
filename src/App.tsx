@@ -6,6 +6,7 @@ import PeriodsPanel from './components/PeriodsPanel/PeriodsPanel';
 import TotalsBlock from './components/Totals/TotalsBlock';
 import CreationForm from './components/CreationForm/CreationForm';
 import { useAppSelector } from './hooks/redux';
+import CategoriesForm from './components/CategoriesForm/CategoriesForm';
 
 function App() {
    const { operations } = useAppSelector((store) => store.operationsReducer);
@@ -36,6 +37,7 @@ function App() {
                </>
             )}
             {menu === 'expenses' && <CreationForm />}
+            {menu === 'categories' && <CategoriesForm />}
          </div>
          <div className="bottom_menu">
             <Menu />

@@ -5,7 +5,6 @@ export const formatBalance = (
    currency: string,
    type?: TransactionType,
 ) => {
-   console.log('balance', balance);
    const formattedNumber = Math.abs(balance).toLocaleString('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
