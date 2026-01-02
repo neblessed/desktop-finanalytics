@@ -57,8 +57,9 @@ function DatePicker({ label = 'Date', handleDateChange }: DatePickerPropType) {
       setYear(currentDate.getFullYear());
       setCalendarVisible(false);
    };
+   console.log(`${day} - ${month} - ${year}`);
 
-   handleDateChange(`${day}/${month}/${year}`);
+   handleDateChange(`${month}/${day}/${year}`);
 
    return (
       <div className="date_picker">

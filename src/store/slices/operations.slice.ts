@@ -9,7 +9,7 @@ const initialOperations: OperationType[] = [
       id: '1',
       category: 'Salary',
       amount: 1582.38,
-      date: '4/1/2026',
+      date: '1/4/2026',
       type: 'earnings',
    },
 ];
