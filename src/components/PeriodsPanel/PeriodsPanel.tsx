@@ -1,12 +1,26 @@
 import { useState } from 'react';
 import './PeriodsPanel.css';
 
-function PeriodsPanel() {
-   const [daily, setDaily] = useState(true);
-   const [weekly, setWeekly] = useState(false);
-   const [monthly, setMonthly] = useState(false);
+type Period = 'daily' | 'weekly' | 'monthly';
 
-   const handlePeriodSwitch = (period: 'daily' | 'weekly' | 'monthly') => {
+type PeriodsPanelProps = {
+   daily: boolean;
+   setDaily: (set: boolean) => void;
+   weekly: boolean;
+   setWeekly: (set: boolean) => void;
+   monthly: boolean;
+   setMonthly: (set: boolean) => void;
+};
+
+function PeriodsPanel({
+   daily,
+   setDaily,
+   weekly,
+   setWeekly,
+   monthly,
+   setMonthly,
+}: PeriodsPanelProps) {
+   const handlePeriodSwitch = (period: Period) => {
       if (period === 'daily') {
          setWeekly(false);
          setMonthly(false);
